@@ -27,12 +27,21 @@ http
 		const data = Buffer.concat(buffers).toString();
 		const params = new URLSearchParams(data);
 
-		const text = params.get("text") || "";
+		var text = params.get("text") || "";
+		const url = params.get("url") || "";
+		const title = params.get("title") || "";
 		const instanceURL = params.get("instance") || "https://mastodon.social/";
 
+		if (text.length > 0) {
+			text += "\n\n";
+			text += title;
+		} else {
+			text = title;
+		}
+
 		const finalURL = new URL("share", instanceURL);
-		finalURL.search = new URLSearchParams({ text }).toString();
+		finalURL.search = new URLSearchParams({ text, url }).toString();
 
 		res.writeHead(303, { Location: finalURL.toString() }).end();
 	})
-	.listen(8000);
+	.listen(8067);

@@ -122,8 +122,19 @@ for (let i = 0; i < URLParams.length; i++) {
 	const URLParamPair = URLParams[i].split("=");
 	if (URLParamPair[0] === "text") {
 		document.getElementById("text").value = decodeURIComponent(URLParamPair[1]);
+	} else if (URLParamPair[0] === "url") {
+		document.getElementById("url").value = decodeURIComponent(URLParamPair[1]);
+	}  else if (URLParamPair[0] === "title") {
+		document.getElementById("title").value = decodeURIComponent(URLParamPair[1]);
 	} else if (URLParamPair[0] === "instance") {
 		prefillInstance = decodeURIComponent(URLParamPair[1]);
+	} else if (URLParamPair[0] === "shareonly") {
+		if (document.getElementById("url").value !== "") {
+			document.getElementById("url").readOnly = true;
+		}
+		if (document.getElementById("title").value !== "") {
+			document.getElementById("title").readOnly = true;
+		}
 	}
 }
 

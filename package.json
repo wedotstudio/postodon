@@ -1,13 +1,12 @@
 {
-	"name": "toot",
+	"name": "postodon",
 	"version": "2.4.1",
 	"description": "Cross-instance share page for Mastodon",
 	"license": "AGPL-3.0-or-later",
-	"author": "Nikita Karamov <me@kytta.dev>",
-	"homepage": "https://toot.kytta.dev/",
+	"homepage": "https://toot-api.wedotstud.io/",
 	"repository": {
 		"type": "git",
-		"url": "https://codeberg.org/kytta/toot.git"
+		"url": "https://github.com/wedotstudio/postodon.git"
 	},
 	"private": true,
 	"scripts": {

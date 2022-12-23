@@ -116,6 +116,7 @@ function onFormSubmit(form) {
 }
 
 const prefillInstance = getRecentInstances()[0];
+var is_shared = false;
 
 const URLParams = window.location.search.substr(1).split("&");
 for (let i = 0; i < URLParams.length; i++) {
@@ -129,12 +130,16 @@ for (let i = 0; i < URLParams.length; i++) {
 	} else if (URLParamPair[0] === "instance") {
 		prefillInstance = decodeURIComponent(URLParamPair[1]);
 	} else if (URLParamPair[0] === "shareonly") {
-		if (document.getElementById("url").value !== "") {
-			document.getElementById("url").readOnly = true;
-		}
-		if (document.getElementById("title").value !== "") {
-			document.getElementById("title").readOnly = true;
-		}
+		is_shared = true;
+	}
+}
+
+if (is_shared) {
+	if (document.getElementById("url").value !== "") {
+		document.getElementById("url").readOnly = true;
+	}
+	if (document.getElementById("title").value !== "") {
+		document.getElementById("title").readOnly = true;
 	}
 }
 
